@@ -1,0 +1,42 @@
+---
+openapi: 3.0.0
+info:
+  title: Simple API
+  version: 1.0.0
+  description: A simple API that returns "it works" when called.
+
+paths:
+  /test:
+    get:
+      summary: Test endpoint
+      description: Returns "it works".
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "it works"
+
+  /run-script:
+    get:
+      summary: Run Python script
+      description: Executes a Python script inside a virtual environment and returns its output.
+      responses:
+        '200':
+          description: Script executed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  output:
+                    type: string
+                    example: "Python script started inside the virtual environment!"
+                  error:
+                    type: string
+                    example: ""
